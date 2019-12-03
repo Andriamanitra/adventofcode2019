@@ -1,12 +1,12 @@
 function main()
     INPUTFILE = length(ARGS) == 1 ? ARGS[1] : "input.txt"
-    lines = readlines(INPUTFILE)
     DIRS = Dict(
         'U' => ( 0, 1),
         'R' => ( 1, 0),
         'D' => ( 0,-1),
         'L' => (-1, 0),
     )
+    lines = readlines(INPUTFILE)
     paths = map(x -> split(x, ","), lines)
     nearest = Inf
     fewest = Inf
