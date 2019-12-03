@@ -1,5 +1,6 @@
 function main()
-    lines = readlines("input.txt")
+    INPUTFILE = length(ARGS) == 1 ? ARGS[1] : "input.txt"
+    lines = readlines(INPUTFILE)
     DIRS = Dict(
         'U' => ( 0, 1),
         'R' => ( 1, 0),
