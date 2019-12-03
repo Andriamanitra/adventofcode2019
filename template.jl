@@ -1,15 +1,14 @@
-using Printf
-
 function main()
+    INPUTFILE = length(ARGS) == 1 ? ARGS[1] : "input.txt"
     result = 0
-    #lines = readlines("input.txt")
-    #numbers = map(x -> parse(Int, x), readlines("input.txt"))
-    #chars = read("input.txt", Str)
-    #word_lists = map(x -> split(x, " "), readlines("input.txt"))
-    #dict = Dict(tuple(map(x -> split(x, ": "), readlines("input.txt"))))
-    #for line in eachline("input.txt")
+    #lines = readlines(INPUTFILE)
+    #numbers = map(x -> parse(Int, x), readlines(INPUTFILE))
+    #chars = read(INPUTFILE, String)
+    #word_lists = map(x -> split(x, " "), readlines(INPUTFILE))
+    #dict = Dict(tuple(map(x -> split(x, ": "), readlines(INPUTFILE))))
+    #for line in eachline(INPUTFILE)
 
-    @printf "Result is %d\n" result
+    println("Result is $result")
 end
 
 @time main()
