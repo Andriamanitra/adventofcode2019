@@ -7,12 +7,12 @@ function compute(numbers, noun, verb)
     numbers[3] = verb
     while true
         opcode = numbers[i]
-        if opcode == 99
+        if opcode == 99 # End program
             return numbers[1]
         end
-        left   = numbers[i+1] +1 # STUPID ZERO-BASED
-        right  = numbers[i+2] +1 # INDEXING IS USED
-        out    = numbers[i+3] +1 # IN THIS STUPID PROBLEM
+        left  = numbers[i+1] +1 # STUPID ZERO-BASED
+        right = numbers[i+2] +1 # INDEXING IS USED
+        out   = numbers[i+3] +1 # IN THIS STUPID PROBLEM
         if opcode == 1
             numbers[out] = numbers[left] + numbers[right]
         elseif opcode == 2
@@ -25,7 +25,8 @@ function compute(numbers, noun, verb)
 end
 
 function main()
-    chars = read("input.txt", String)
+    INPUTFILE = length(ARGS) == 1 ? ARGS[1] : "input.txt"
+    chars = read(INPUTFILE, String)
     numbers = map(x -> parse(Int, x), split(chars, ","))
 
     # Part 1
