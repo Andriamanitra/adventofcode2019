@@ -102,19 +102,20 @@ function main()
     end
     println("(Part 1) Highest signal is $max_val")
 
+    AMP_COUNT = 5
     max_val = -Inf
     for perm in permutations(collect(5:9))
         res = 0
         last = 0
         
         # Instruction pointers
-        ips = [1, 1, 1, 1, 1]
+        ips = [1 for _ = 1:AMP_COUNT]
         
         # States of each amplifier
-        abcde = [copy(numbers), copy(numbers), copy(numbers), copy(numbers), copy(numbers)]
+        abcde = [copy(numbers) for _ = 1:AMP_COUNT]
 
         # Set initial phases
-        for i in 1:5
+        for i in 1:AMP_COUNT
             (ips[i], res) = (ips[i], res) = compute(abcde[i], (perm[i], res), ips[i])
         end
         
@@ -122,7 +123,7 @@ function main()
         # caught (I don't like this solution but it works)
         try
             while true
-                for i in 1:5
+                for i in 1:AMP_COUNT
                     (ips[i], res) = compute(abcde[i], (res), ips[i])
                 end
                 last = res
